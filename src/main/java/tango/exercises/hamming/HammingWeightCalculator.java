@@ -22,7 +22,12 @@ public class HammingWeightCalculator {
     }
 
     int jdk(int input) {
-        //does it without looping...pretty cool trick.
-        return Integer.bitCount(input);
+        //Integer.bitCount(input) does it without looping...pretty cool trick.
+        input = input - ((input >>> 1) & 0x55555555);
+        input = (input & 0x33333333) + ((input >>> 2) & 0x33333333);
+        input = (input + (input >>> 4)) & 0x0f0f0f0f;
+        input = input + (input >>> 8);
+        input = input + (input >>> 16);
+        return input & 0x3f;
     }
 }

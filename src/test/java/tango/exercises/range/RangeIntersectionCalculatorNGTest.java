@@ -88,6 +88,10 @@ public class RangeIntersectionCalculatorNGTest {
             {
                 of(new Range(2, 7), new Range(3, 8), new Range(6, 12), new Range(10, 14)),
                 of(new Range(2, 14))
+            },
+            {
+                of(new Range(-2, 7), new Range(-1, 8), new Range(0, 12), new Range(10, 14)),
+                of(new Range(-2, 14))
             }
         };
     }
